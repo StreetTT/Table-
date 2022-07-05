@@ -29,5 +29,33 @@ def SQLCommand(command, transaction=False):
             else:
                 output.append(i[0])
         return output
-
-SQLCommand("""SHOW TABLES""")
+SQLCommand("""CREATE TABLE IF NOT EXISTS Schools (
+           ID varchar(255) NOT NULL,
+           Name varchar(255) NOT NULL,
+           EmailSuffix varchar(255) NOT NULL,
+           PRIMARY KEY (ID)
+)""")
+SQLCommand("""CREATE TABLE IF NOT EXISTS Subjects (
+           ID varchar(255) NOT NULL,
+           Name varchar(255) NOT NULL
+           PRIMARY KEY (ID)
+)""")
+SQLCommand("""CREATE TABLE IF NOT EXISTS Teachers (
+           ID varchar(255) NOT NULL,
+           Title varchar(255) NOT NULL,
+           FirstName varchar(255) NOT NULL,
+           Surname varchar(255) NOT NULL
+           PRIMARY KEY (ID)
+)""")
+SQLCommand("""CREATE TABLE IF NOT EXISTS Users (
+           ID varchar(255) NOT NULL,
+           Name varchar(255) NOT NULL
+           Username varchar(255) NOT NULL,
+           Username varchar(255) NOT NULL UNIQUE,
+           Email varchar(255) NOT NULL UNIQUE,
+           Pin int NOT NULL,
+           SchoolID varchar(255) NOT NULL,
+           Icon varchar(255),
+           PRIMARY KEY (ID),
+           FOREIGN KEY (SchoolID) REFERENCES Persons(Schools.ID)
+)""")
