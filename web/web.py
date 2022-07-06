@@ -35,5 +35,13 @@ def SignUp():
     return render_template("signup.html")
 
 
+navigation = ["u", "r", "m", "u", "m"]
+
+
+@app.route("/printvariables", methods=["GET"])
+def PrintVariables():
+    return render_template("printvariables.html", navigation=navigation)
+
+
 if __name__ == "__main__":
     app.run(debug=True)

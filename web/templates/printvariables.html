@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block Title %}Print variables{% endblock %}
+{% block Header %}Print variables{% endblock %}
+{% block Body %}<p>Basically, i wanted to print thing based on variables so voila</p>
+<ul id="navigation">
+    {% for item in navigation %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+        <form method="POST">
+          <input type="submit" value="Submit" />
+        </form>{% endblock %}
